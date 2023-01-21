@@ -3,4 +3,28 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap');
 
+*{
+    box-sizing: border-box;
+}
+body{
+    scroll-behavior: smooth;
+    font-family: 'Spline Sans', sans-serif;
+}
+
+.constrained{
+  max-width: 1440px;
+  margin: auto;
+}
+
+.btn{
+    @apply inline-block bg-gray-200 px-3 py-2 border-none shadow-sm font-medium;
+
+}
+.btn--primary{
+    @apply bg-mainPurple text-white;
+}
+.btn--secondary{
+    @apply bg-mainOrange text-white;
+}
