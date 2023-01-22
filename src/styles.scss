@@ -26,5 +26,5 @@ body{
     @apply bg-mainPurple text-white;
 }
 .btn--secondary{
-    @apply bg-mainOrange text-white;
+    @apply bg-mainOrange text-white hover:bg-[#a72801] duration-300 ease-in-out;
 }
