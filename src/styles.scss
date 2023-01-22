@@ -23,8 +23,12 @@ body{
 
 }
 .btn--primary{
-    @apply bg-mainPurple text-white;
+    @apply bg-mainPurple text-white hover:bg-purple-700;
+}
+.btn--tertiary{
+    @apply bg-white text-mainPurple hover:bg-purple-100;
 }
 .btn--secondary{
     @apply bg-mainOrange text-white hover:bg-[#a72801] duration-300 ease-in-out;
 }
+
