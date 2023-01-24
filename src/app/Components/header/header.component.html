@@ -1,38 +1,40 @@
-<header>
-    <nav class="constrained">
-        <ul class="nav" role="navigation">
-            <li title="Homemade Designs & Construction" class="nav__item">
-                <a class="nav__link"><img src="/assets/HMDC/HMDC_logo_coloured.svg" alt="HMDC Logo should be here"></a></li>
-            <div class="nav__item-group">
-                <li class="nav__item" title="Home"><a class="nav__link">HOME</a></li>
-                <li class="nav__item" title="About Us" routerLink="/about"><a class="nav__link">ABOUT US</a></li>
-                <li class="nav__item" title="Services"><a class="nav__link">SERVICES</a></li>
-                <li class="nav__item" title="Projects"><a class="nav__link">PROJECTS</a></li>
-                <li class="nav__item" title="Contact Us"><a class="nav__link">CONTACT US</a></li>
-            </div>
-            <li class="nav__item cta" title="Request Quote"><button class="btn btn--secondary">REQUEST QUOTE</button></li>
-            <li class="hamburger" title="Menu Icon" (click)="toggleNav()"><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.21271 5H17.7873" stroke="#3D1766" stroke-width="1.73051" stroke-linecap="round"/>
-                <path d="M2.21271 10H17.7873" stroke="#3D1766" stroke-width="1.73051" stroke-linecap="round"/>
-                <path d="M2.21271 15H17.7873" stroke="#3D1766" stroke-width="1.73051" stroke-linecap="round"/>
-                </svg>
-            </li>
-        </ul>
-        <div [class]="{'mobile_nav': true, 'active': active}">
-            <span class="close_icon" (click)="toggleNav()">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.6161 11.6161C12.1043 11.128 12.8957 11.128 13.3839 11.6161L20 18.2322L26.6161 11.6161C27.1043 11.128 27.8957 11.128 28.3839 11.6161C28.872 12.1043 28.872 12.8957 28.3839 13.3839L21.7678 20L28.3839 26.6161C28.872 27.1043 28.872 27.8957 28.3839 28.3839C27.8957 28.872 27.1043 28.872 26.6161 28.3839L20 21.7678L13.3839 28.3839C12.8957 28.872 12.1043 28.872 11.6161 28.3839C11.128 27.8957 11.128 27.1043 11.6161 26.6161L18.2322 20L11.6161 13.3839C11.128 12.8957 11.128 12.1043 11.6161 11.6161Z" fill="white"/>
-                    </svg>                    
-            </span>
-            <ul class="mobile_nav__group">
-                <li class="mobile_nav__item" title="Home"><a class="nav__link">HOME</a></li>
-                <li class="mobile_nav__item" title="About Us" routerLink="/about"><a class="nav__link">ABOUT US</a></li>
-                <li class="mobile_nav__item" title="Services"><a class="nav__link">SERVICES</a></li>
-                <li class="mobile_nav__item" title="Projects"><a class="nav__link">PROJECTS</a></li>
-                <li class="mobile_nav__item" title="Contact Us"><a class="nav__link">CONTACT US</a></li>
-                <li class="mobile_nav___item" title="Request Quote"><button class="btn btn--tertiary">REQUEST QUOTE</button></li>
-
+<section #headerContainer class="h-[92px]">
+    <header>
+        <nav class="constrained">
+            <ul class="nav" role="navigation"  #headerSection>
+                <li title="Homemade Designs & Construction" class="nav__item">
+                    <a class="nav__link"><img src="/assets/HMDC/HMDC_logo_coloured.svg" alt="HMDC Logo should be here"></a></li>
+                <div class="nav__item-group">
+                    <li class="nav__item" title="Home" routerLink="/home"><a class="nav__link">HOME</a></li>
+                    <li class="nav__item" title="About Us" routerLink="/about"><a class="nav__link">ABOUT US</a></li>
+                    <li class="nav__item" title="Services"><a class="nav__link">SERVICES</a></li>
+                    <li class="nav__item" title="Projects"><a class="nav__link">PROJECTS</a></li>
+                    <li class="nav__item" title="Contact Us" routerLink="/contact"><a class="nav__link">CONTACT US</a></li>
+                </div>
+                <li class="nav__item cta" title="Request Quote" routerLink="/contact"><button class="btn btn--secondary">REQUEST QUOTE</button></li>
+                <li class="hamburger" title="Menu Icon" (click)="toggleNav()"><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.21271 5H17.7873" stroke="#3D1766" stroke-width="1.73051" stroke-linecap="round"/>
+                    <path d="M2.21271 10H17.7873" stroke="#3D1766" stroke-width="1.73051" stroke-linecap="round"/>
+                    <path d="M2.21271 15H17.7873" stroke="#3D1766" stroke-width="1.73051" stroke-linecap="round"/>
+                    </svg>
+                </li>
             </ul>
-        </div>
-    </nav>
-</header>
+            <div [class]="{'mobile_nav': true, 'active': active}">
+                <span class="close_icon" (click)="toggleNav()">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.6161 11.6161C12.1043 11.128 12.8957 11.128 13.3839 11.6161L20 18.2322L26.6161 11.6161C27.1043 11.128 27.8957 11.128 28.3839 11.6161C28.872 12.1043 28.872 12.8957 28.3839 13.3839L21.7678 20L28.3839 26.6161C28.872 27.1043 28.872 27.8957 28.3839 28.3839C27.8957 28.872 27.1043 28.872 26.6161 28.3839L20 21.7678L13.3839 28.3839C12.8957 28.872 12.1043 28.872 11.6161 28.3839C11.128 27.8957 11.128 27.1043 11.6161 26.6161L18.2322 20L11.6161 13.3839C11.128 12.8957 11.128 12.1043 11.6161 11.6161Z" fill="white"/>
+                        </svg>                    
+                </span>
+                <ul class="mobile_nav__group">
+                    <li class="mobile_nav__item" title="Home" routerLink="/home"><a class="nav__link">HOME</a></li>
+                    <li class="mobile_nav__item" title="About Us" routerLink="/about"><a class="nav__link">ABOUT US</a></li>
+                    <li class="mobile_nav__item" title="Services"><a class="nav__link">SERVICES</a></li>
+                    <li class="mobile_nav__item" title="Projects"><a class="nav__link">PROJECTS</a></li>
+                    <li class="mobile_nav__item" title="Contact Us" routerLink="/contact"><a class="nav__link">CONTACT US</a></li>
+                    <li class="mobile_nav___item" title="Request Quote"routerLink="/contact"><button class="btn btn--tertiary">REQUEST QUOTE</button></li>
+    
+                </ul>
+            </div>
+        </nav>
+    </header>
+</section>
