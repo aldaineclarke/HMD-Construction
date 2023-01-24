@@ -1,11 +1,42 @@
-.about_history-grid{
+.about_history__grid{
     display:grid;
     grid-template-columns: repeat(2, 1fr);
 
+    .img img{
+        height:100%;
+        width: 100%;
+        object-fit: cover;
+        object-position:center;
+    }
     .text-section{
         @apply flex flex-col items-center p-10 text-center gap-5
     }
     .title{
         @apply text-4xl font-bold text-mainPurple uppercase tracking-widest
     }
+}
+
+@media(max-width:760px){
+    .about_history__grid{
+        grid-template-columns: 1fr;
+
+
+        // swapped grid order of 3rd and 4th element so we have a pattern of image text image text.
+        &> div:nth-of-type(3){
+            grid-row-start: 4;
+            grid-row-end:5;
+          
+
+        }
+        &> div:nth-of-type(4){
+            grid-row-start: 3;
+            grid-row-end:4;
+          
+
+        }
+    }
+    
+
+    // switch grid order
+
 }
