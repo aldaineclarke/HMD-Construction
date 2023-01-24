@@ -1,0 +1,11 @@
+.about_history-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .text-section{
+        @apply flex flex-col items-center p-10 text-center gap-5
+    }
+    .title{
+        @apply text-4xl font-bold text-mainPurple uppercase tracking-widest
+    }
+}
