@@ -2,7 +2,7 @@ section{
     padding: 20px;
 }
 .newsletter{
-    height: 50vh;
+    height: 60vh;
     display: flex;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 200px), 50% 100%, 0% calc(100% - 200px))
 }
@@ -14,7 +14,7 @@ section{
         @apply text-white text-3xl font-bold;
     }
     p{
-        @apply text-white;
+        @apply text-white text-sm tracking-wider;
     }
 
     fieldset{
@@ -100,7 +100,7 @@ section{
         
     }
     .newsletter{
-        height: 60vh;
+        height: 70vh;
         align-items: flex-start;
 
         .constrained{
@@ -130,6 +130,17 @@ section{
     .footer__sunken-section{
         justify-content:space-evenly;    }
 
-
+        .newsletter{
+            height: 80vh;
+            align-items: flex-start;
+    
+            .constrained{
+                margin-top: 0;
+            }
+            fieldset{
+                width:100%;
+            }
+          
+        }
     
 }
