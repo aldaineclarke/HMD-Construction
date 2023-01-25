@@ -31,9 +31,6 @@ header{
     z-index: 3;
     width: 100%;
     
-    nav{
-    }
-    
     .nav{
         display:flex;
         width: 100%;
@@ -41,7 +38,7 @@ header{
         align-items: center;
         justify-content: space-between;
         padding: 20px;
-        color: white;
+        @apply text-white ;
     }
     .nav__item-group{
         display:flex;
@@ -69,6 +66,39 @@ header{
     
 }
 
+.hamburger{
+    display:none;
+}
+.mobile_nav{
+    position: absolute;
+    transform: translateX(-100%);
+    transition: 800ms ease-in-out transform;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    
+    z-index: 7;
+    @apply bg-mainPurple h-screen w-screen flex flex-col items-center justify-center text-white text-center gap-2 p-5;
+
+    display:none;
+
+    .close_icon{
+        @apply mb-auto self-end;
+    }
+
+    .mobile_nav__group{
+        @apply mb-auto flex flex-col gap-2 text-xl;
+    }
+
+    &.active{
+        transform: translateX(0);
+    }
+}
+
+
+
+
 
 .hexagon{
     margin: 8rem 0 16rem ;
@@ -81,8 +111,10 @@ header{
 }
 .hexagon img{
     // position: absolute;
-    height: 100%;
+    max-height: 724px;
+    height: 55vw;
     width: 100%;
+    display:inline-block;
 
 }
 .service{
@@ -94,7 +126,7 @@ header{
         @apply text-mainOrange font-semibold text-center;
     }
     .service__desc{
-        @apply w-[300px] text-center;
+        @apply w-[250px] text-center text-sm;
     }
 
 
@@ -104,11 +136,11 @@ header{
     }
 
     &:nth-of-type(2){
-        transform: translate(30vw, -20vh);
+        transform: translate(32vw, -20vh);
 
     }
     &:nth-of-type(3){
-        transform: translate(30vw, 30vh);
+        transform: translate(32vw, 35vh);
 
     }
     &:nth-of-type(4){
@@ -116,7 +148,7 @@ header{
 
     }
     &:nth-of-type(5){
-        transform: translate(-30vw, 30vh);
+        transform: translate(-32vw, 35vh);
 
     }
     &:nth-of-type(6){
@@ -183,7 +215,7 @@ header{
     @apply bg-mainPurple text-white;
 
     .constrained{
-        @apply flex justify-between gap-20;
+        @apply flex flex-wrap justify-between gap-20 sm:flex-wrap sm:w-3/4 md:flex-nowrap;
     }
     .statistic{
         @apply text-center py-5 flex flex-col gap-2;
@@ -198,7 +230,7 @@ header{
 
 }
 .heading{
-    @apply text-mainPurple font-bold text-5xl;
+    @apply text-mainPurple font-bold text-4xl text-center lg:text-5xl ;
 }
 .projects{
 
@@ -249,17 +281,28 @@ header{
 }
 
 .testimonials .bubbled{
-    @apply bg-mainOrange w-[350px] h-[350px] absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 flex items-center justify-center rounded-full;
+    @apply bg-mainOrange right-1/2 -translate-x-1/2 w-[70vw] h-[70vw] sm:w-[25vw] sm:h-[25vw] max-w-[360px] max-h-[360px] absolute sm:top-1/2 sm:right-0 translate-x-1/2 -translate-y-1/2 flex items-center justify-center rounded-full;
 }
 .bubbled .heading{
-    @apply text-white;
+    @apply text-white text-[8vw] sm:text-[3.2vw]  2xl:text-5xl;
 }
+.testimonial_section{
+    @apply grid grid-cols-1 sm:grid-cols-2 ;
 
+
+    .head-section{
+        @apply  md:w-3/4 relative;
+    }
+
+    img{
+        @apply w-full h-full object-center object-cover hidden sm:flow-root;
+    }
+}
 .testimonials__group{
-    @apply flex mt-20 mx-5 gap-5;
+    @apply flex mt-20 mx-5 gap-5  text-center flex-wrap md:flex-nowrap;
 
     .testimonial{
-        @apply flex-grow basis-1/2 flex flex-col gap-2;
+        @apply flex-grow basis-1/2 flex flex-col gap-2 relative z-[5];
     }
     .testimonial__title{
         @apply uppercase font-semibold text-lg;
@@ -344,4 +387,67 @@ header{
     color:rgb(141, 141, 141);
     justify-content: flex-end;
     font-size: .7rem;
+}
+
+.grid_services{display:none;}
+
+
+@media(max-width:1024px){
+    .grid_services{display:flow-root}
+
+    .hexagon{
+        display:none;
+    }
+
+    .service{
+        position:absolute;
+        z-index: 3;
+        
+        .service__title{
+            @apply text-mainOrange font-semibold text-center;
+        }
+        .service__desc{
+            @apply w-[250px] text-center text-sm;
+        }
+    
+    
+    
+        &:nth-of-type(1){
+            transform: translate(0,-35vh);
+        }
+    
+        &:nth-of-type(2){
+            transform: translate(32vw, -20vh);
+    
+        }
+        &:nth-of-type(3){
+            transform: translate(32vw, 35vh);
+    
+        }
+        &:nth-of-type(4){
+            transform: translate(0, 50vh);
+    
+        }
+        &:nth-of-type(5){
+            transform: translate(-32vw, 35vh);
+    
+        }
+        &:nth-of-type(6){
+            transform: translate(-30vw, -20vh);
+    
+        }
+    }
+    
+}
+
+@media(max-width:760px){
+    .mobile_nav{
+        display:flex;
+    }
+    .hamburger{
+        display:inline-block;
+    }
+    .nav .nav__item-group, .nav .cta{
+        display:none;
+    }
 }
