@@ -1,0 +1,68 @@
+.banner{
+    height: 80vh;
+    .constrained{
+        height: 100%;
+    }
+    img{
+        object-fit: cover;
+        object-position: top;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.quoteSection__grid{
+    min-height: 80vh;
+    padding: 20px;
+    display:grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+
+    .quoteForm{
+        @apply flex flex-col gap-4  p-5 shadow-xl w-4/5 mx-auto -m-40 bg-white h-max;
+
+        legend{
+            @apply text-mainOrange font-semibold text-2xl;
+        }
+
+        input, select, textarea{
+            @apply focus:border-mainOrange;
+        }
+    }
+    .contact-blurb{
+        @apply flex flex-col justify-center text-center p-5 font-thin gap-4 w-3/4 m-auto;
+
+        .title{
+            @apply font-bold; 
+        }
+    }
+
+    
+}
+
+.form_field{
+    @apply flex flex-col;
+
+    label{
+        @apply flex flex-col gap-1;
+
+        span{
+            @apply text-sm  text-gray-600;
+        }
+    }
+
+    input, select, textarea{
+        @apply w-full bg-white rounded border border-gray-300 focus:border-mainPurple focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out min-h-[42px];
+    }
+    textarea{
+        @apply h-20;
+    }
+}
+
+.divider{
+    @apply p-5;
+
+    h3{
+        @apply text-white text-4xl font-semibold w-3/5 py-10;
+    }
+}
