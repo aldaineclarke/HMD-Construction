@@ -4,13 +4,13 @@
             <li title="Homemade Designs & Construction" class="nav__item">
                 <a class="nav__link"><img src="/assets/HMDC/HMDC_logo_white.svg" alt="HMDC Logo should be here"></a></li>
             <div class="nav__item-group">
-                <li class="nav__item" title="Home"><a class="nav__link">HOME</a></li>
+                <li class="nav__item" title="Home" routerLink="/home"><a class="nav__link">HOME</a></li>
                 <li class="nav__item" title="About Us" routerLink="/about"><a class="nav__link">ABOUT US</a></li>
-                <li class="nav__item" title="Services"><a class="nav__link">SERVICES</a></li>
-                <li class="nav__item" title="Projects"><a class="nav__link">PROJECTS</a></li>
-                <li class="nav__item" title="Contact Us"><a class="nav__link">CONTACT US</a></li>
+                <li class="nav__item" title="Services" routerLink="/home" fragment="services"><a class="nav__link">SERVICES</a></li>
+                <li class="nav__item" title="Projects" routerLink="/home" fragment="projects" ><a class="nav__link">PROJECTS</a></li>
+                <li class="nav__item" title="Contact Us" routerLink="/contact"><a class="nav__link">CONTACT US</a></li>
             </div>
-            <li class="nav__item" title="Request Quote"><button class="btn btn--secondary">REQUEST QUOTE</button></li>
+            <li class="nav__item" title="Request Quote" routerLink="/contact" fragment="quoteSection"><button class="btn btn--secondary">REQUEST QUOTE</button></li>
         </ul>
     </nav>
 </header>
@@ -27,7 +27,7 @@
 
     </div>
 </section>
-<section class="services px-5">
+<section class="services px-5" id="services">
     <div class="constrained">
 
         <h2 class="heading">Services we offer</h2>
@@ -89,7 +89,7 @@
         </div>
     </div>
 </section>
-<section class="projects">
+<section class="projects" id="projects">
     <h2 class="heading">Some of our work</h2>
     <p class="w-3/4 mt-10">With our experienced professionals and top-of-the-line materials, you can rest assured that your project will be completed in a timely manner and with the highest standards of quality. Our customers are consistently satisfied with the end result, giving us an average rating of 4.8 out of 5 stars!</p>
     <div class="carousel mt-10">

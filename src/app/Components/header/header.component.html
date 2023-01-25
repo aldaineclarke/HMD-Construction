@@ -7,11 +7,11 @@
                 <div class="nav__item-group">
                     <li class="nav__item" title="Home" routerLink="/home"><a class="nav__link">HOME</a></li>
                     <li class="nav__item" title="About Us" routerLink="/about"><a class="nav__link">ABOUT US</a></li>
-                    <li class="nav__item" title="Services"><a class="nav__link">SERVICES</a></li>
-                    <li class="nav__item" title="Projects"><a class="nav__link">PROJECTS</a></li>
+                    <li class="nav__item" title="Services" routerLink="/home" fragment="services"><a class="nav__link">SERVICES</a></li>
+                    <li class="nav__item" title="Projects" routerLink="/home" fragment="projects"><a class="nav__link">PROJECTS</a></li>
                     <li class="nav__item" title="Contact Us" routerLink="/contact"><a class="nav__link">CONTACT US</a></li>
                 </div>
-                <li class="nav__item cta" title="Request Quote" routerLink="/contact#test"><button class="btn btn--secondary">REQUEST QUOTE</button></li>
+                <li class="nav__item cta" title="Request Quote" routerLink="/contact" fragment="quoteSection"><button class="btn btn--secondary">REQUEST QUOTE</button></li>
                 <li class="hamburger" title="Menu Icon" (click)="toggleNav()"><svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.21271 5H17.7873" stroke="#3D1766" stroke-width="1.73051" stroke-linecap="round"/>
                     <path d="M2.21271 10H17.7873" stroke="#3D1766" stroke-width="1.73051" stroke-linecap="round"/>
@@ -28,10 +28,10 @@
                 <ul class="mobile_nav__group">
                     <li class="mobile_nav__item" title="Home" routerLink="/home"><a class="nav__link">HOME</a></li>
                     <li class="mobile_nav__item" title="About Us" routerLink="/about"><a class="nav__link">ABOUT US</a></li>
-                    <li class="mobile_nav__item" title="Services"><a class="nav__link">SERVICES</a></li>
-                    <li class="mobile_nav__item" title="Projects"><a class="nav__link">PROJECTS</a></li>
+                    <li class="mobile_nav__item" title="Services" routerLink="/home" fragment="services"><a class="nav__link">SERVICES</a></li>
+                    <li class="mobile_nav__item" title="Projects" routerLink="/home" fragment="projects"><a class="nav__link">PROJECTS</a></li>
                     <li class="mobile_nav__item" title="Contact Us" routerLink="/contact"><a class="nav__link">CONTACT US</a></li>
-                    <li class="mobile_nav___item" title="Request Quote"routerLink="/contact"><button class="btn btn--tertiary">REQUEST QUOTE</button></li>
+                    <li class="mobile_nav___item" title="Request Quote"routerLink="/contact" fragment="quoteSection"><button class="btn btn--tertiary">REQUEST QUOTE</button></li>
     
                 </ul>
             </div>
