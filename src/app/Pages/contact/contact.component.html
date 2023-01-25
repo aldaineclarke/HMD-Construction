@@ -32,6 +32,7 @@
                         <span>Service</span>
                         <select name="service" id="">
                             <option>-- Select Service --</option>
+                            <option *ngFor="let service of services" [value]="service">{{service}}</option>
                         </select>
                     </label>
                 </div>

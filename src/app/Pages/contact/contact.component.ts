@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+
+  services = ["General Construction", "Equipment Rental", "Construction Planning and Design", "Transportation Solution", "Legal Consultation", "Building Maintenance"];
+
   constructor() { }
 
   ngOnInit(): void {
