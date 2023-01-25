@@ -60,9 +60,45 @@
 }
 
 .divider{
+    @apply p-5 mt-8;
+
+    h3{
+        @apply text-white text-4xl font-semibold w-4/5 py-10;
+    }
+}
+
+@media(max-width:760px){
+   .quoteSection__grid{ .quoteForm{
+        @apply w-full;
+    }
+    
+}
+.divider{
+    @apply p-5 mt-5;
+
+    h3{
+        @apply text-white text-2xl font-semibold w-full py-10;
+    }
+}
+
+}
+@media(max-width:640px){
+    .quoteSection__grid{ 
+        grid-template-columns: 1fr;
+        
+        .quoteForm{
+        @apply w-4/5 m-0 mx-auto;
+    }
+    
+    .contact-blurb{
+        @apply min-h-[60vh]
+    }
+}  
+.divider{
     @apply p-5;
 
     h3{
-        @apply text-white text-4xl font-semibold w-3/5 py-10;
+        @apply text-white text-xl font-semibold w-full py-10;
     }
+}
 }
