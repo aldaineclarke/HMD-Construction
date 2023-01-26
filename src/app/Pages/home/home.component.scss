@@ -230,7 +230,7 @@ header{
 
 }
 .heading{
-    @apply text-mainPurple font-bold text-4xl text-center lg:text-5xl ;
+    @apply text-mainPurple font-bold text-4xl text-center md:text-5xl md:text-start;
 }
 .projects{
 
@@ -238,22 +238,31 @@ header{
 
 
 }
+
+.carousel__wrapper{
+    @apply flex overflow-visible duration-500 ease-in-out transition-transform;
+}
 .carousel__slide{
     perspective: 400px;
+    flex-shrink: 0;
+    width:calc(100vw / 3);
+    transition: transform 500ms ease-in-out;
+
+
 }
-.carousel__slide{
-    flex-basis: 45%;
-}
+
 .carousel__slide img{
     display:inline-block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position:center;
+    transition: transform 500ms ease-in-out;
 }
 .carousel__slide.prev, .carousel__slide.next{
     transform:scale(.7)
 }
+
 .carousel__slide.active img{
     transform: rotateY(0);
 }
@@ -268,15 +277,48 @@ header{
 
 .carousel{
     position:relative;
+    overflow: hidden;
+}
+
+.carousel__details{
+    width:34vw;
+
+}
+.carousel__indicators{
+    display:flex;
+    gap:5px;
+    margin-top: 10px;
+
+    .indicator{
+        @apply bg-gray-300 w-5 h-2 rounded-sm duration-300 ease-in-out transition-colors;
+    }
+    .indicator.active{
+        @apply bg-mainOrange;
+    }
+}
+
+.carousel__slide-detail{
+
+    @apply flex justify-center mt-5 gap-5 text-sm;
+
+    .title{
+        @apply font-semibold
+    }
+    div{
+        display:flex;
+        flex-direction: column;
+        gap:5px;
+    }
 }
 [class^="arrow"]{
-    @apply inline-block bg-mainOrange absolute top-1/2 left-1/2
+    @apply inline-block bg-mainOrange absolute top-1/2 left-1/2 -translate-y-1/2;
 }
 .arrow-right{
-    transform: translateX(-25vw) scale(.7);
+    @apply translate-x-[22vw] xl:translate-x-[300px] scale-75;
+
 }
 .arrow-left{
-    transform: translateX(25vw) scale(.7);
+    @apply -translate-x-[25vw] xl:translate-x-[-330px] scale-75;
 
 }
 
@@ -391,6 +433,12 @@ header{
 
 .grid_services{display:none;}
 
+
+@media (min-width: 1440px){
+    .carousel__slide{
+        width: 480px;
+    }
+}
 
 @media(max-width:1024px){
     .grid_services{display:flow-root}
