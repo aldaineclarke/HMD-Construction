@@ -98,6 +98,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ]
 
   ngOnInit(): void {
+    if(window.innerWidth < 760) {
+      this.index = 0
+
+    }
   }
   active = false;
   toggleNav(){
@@ -115,30 +119,41 @@ export class HomeComponent implements OnInit, AfterViewInit {
         item.classList.add("prev");
       }else if(index == this.index){
         item.classList.add("active");
-      }else{
+      }else if(index == 2){
         item.classList.add("next");
       }
       this.translateByVal = Math.max(this.translateByVal, item.clientWidth)
       this.slides.push(item as HTMLElement);
     });
+    console.log(window.innerWidth)
+    
+
 
 
   }
 
 
   nextSlide():void {
+    this.index++;
     console.log(this.index)
     if(this.index >= 0){
       this.prevBtn.style.display = "flow-root";
-    }if(this.index >= 4){
+    }if(this.index >= 5){
       this.nextBtn.style.display = "none";
-    }else if(this.index > 5){return};
-   this. slider.style.transform = `translateX(-${this.translateByVal * this.index}px)`;
-    this.slides[this.index].classList.replace("active", "prev");
-    this.index++;
-    this.slides[this.index].classList.replace("next", "active");
+    }else if(this.index > 5){ return};
+    if(window.innerWidth < 760){
+      this. slider.style.transform = `translateX(-${this.translateByVal * (this.index)}px)`;
+    }else{
+      this. slider.style.transform = `translateX(-${this.translateByVal * (this.index-1)}px)`;
 
-    // console.log(slider.scrollLeft += window.innerWidth / 3);
+    }
+    this.slides[this.index-1].classList.replace("active", "prev");
+    this.slides[this.index].classList.replace("next", "active");
+    if(this.index < 5){
+      this.slides[this.index + 1].classList.add("next");
+    }
+
+    
   }
   resetActiveSlide(slides:HTMLElement[]){
     slides.forEach((slide)=>{
@@ -147,15 +162,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   previousSlide():void{
+    this.index--;
     console.log(this.index);
-    if(this.index <= 1){
+    if(this.index < 1){
       this.prevBtn.style.display = "none";
     }else if(this.index <= 5){
       this.nextBtn.style.display = "flow-root"
-    }else{
+    }
+    else{
       return
     }
-    this. slider.style.transform = `translateX(${-(this.translateByVal) * (--this.index -1)}px)`;
+    if(window.innerWidth < 760){
+      this. slider.style.transform = `translateX(-${this.translateByVal * (this.index)}px)`;
+    }else{
+      this. slider.style.transform = `translateX(${-this.translateByVal * (this.index-1)}px)`;
+
+    }
     this.slides[this.index+1].classList.replace("active", "next");
     this.slides[this.index].classList.replace("prev", "active");
   }

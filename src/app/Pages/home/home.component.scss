@@ -257,10 +257,10 @@ header{
     height: 100%;
     object-fit: cover;
     object-position:center;
-    transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out, filter 500ms ease-in-out;
 }
 .carousel__slide.prev, .carousel__slide.next{
-    transform:scale(.7)
+    @apply scale-100 md:scale-75;
 }
 
 .carousel__slide.active img{
@@ -268,11 +268,15 @@ header{
 }
 
 .carousel__slide:not(.active) img{
-    transform:rotateY(-30deg);
+    transform:rotateY(-90deg);
     filter:grayscale(1);
 }
 .carousel__slide.next img{
     transform:rotateY(30deg);
+}
+.carousel__slide.prev img{
+    transform:rotateY(-30deg);
+
 }
 
 .carousel{
@@ -290,7 +294,7 @@ header{
     margin-top: 10px;
 
     .indicator{
-        @apply bg-gray-300 w-5 h-2 rounded-sm duration-300 ease-in-out transition-colors;
+        @apply bg-gray-300 w-5 h-1 rounded-sm duration-300 ease-in-out transition-colors;
     }
     .indicator.active{
         @apply bg-mainOrange;
@@ -314,14 +318,16 @@ header{
     @apply inline-block bg-mainOrange absolute top-1/2 left-1/2 -translate-y-1/2;
 }
 .arrow-right{
-    @apply translate-x-[22vw] xl:translate-x-[300px] scale-75;
+    @apply translate-x-[35vw] md:translate-x-[22vw] xl:translate-x-[300px] scale-75 ;
 
 }
 .arrow-left{
-    @apply -translate-x-[25vw] xl:translate-x-[-330px] scale-75;
+    @apply  md:-translate-x-[25vw] xl:translate-x-[-330px] scale-75;
 
 }
-
+[class^="arrow"].hidden{
+    display:none;
+}
 .testimonials .bubbled{
     @apply bg-mainOrange right-1/2 -translate-x-1/2 w-[70vw] h-[70vw] sm:w-[25vw] sm:h-[25vw] max-w-[360px] max-h-[360px] absolute sm:top-1/2 sm:right-0 translate-x-1/2 -translate-y-1/2 flex items-center justify-center rounded-full;
 }
@@ -488,7 +494,44 @@ header{
     
 }
 
+
 @media(max-width:760px){
+
+    .carousel__wrapper{
+        @apply flex overflow-visible duration-500 ease-in-out transition-transform;
+
+
+        .carousel__slide{
+            perspective: 400px;
+            flex-shrink: 0;
+            width:100vw;
+            transition: transform 500ms ease-in-out;
+            
+            
+        
+        }
+        .carousel__slide:not(.active) img, .carousel__slide.prev img{
+            transform:rotate(0);
+            filter:none;
+        }
+    }
+    .carousel__details{
+        width:80vw;
+    
+    }
+
+    [class^="arrow"]{
+        @apply inline-block bg-mainOrange absolute top-1/2 left-1/2 -translate-y-1/2;
+    }
+    .arrow-right{
+        @apply translate-x-[35vw] xl:translate-x-[300px] scale-75 ;
+    
+    }
+    .arrow-left{
+        @apply translate-x-[-35vw] xl:translate-x-[-330px] scale-75;
+    
+    }
+    
     .mobile_nav{
         display:flex;
     }
