@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, Router, RouterEvent, RouterModule, Routes } from '@angular/router';
+import { filter } from 'rxjs';
 import { AboutComponent } from './Pages/about/about.component';
 import { ContactComponent } from './Pages/contact/contact.component';
 import { HomeComponent } from './Pages/home/home.component';
+import { NavService } from './Services/nav.service';
 
 
 const routerOptions: ExtraOptions = {
@@ -32,4 +34,13 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, routerOptions)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  constructor(public router: Router, private navService: NavService){
+    this.router.events.pipe(
+      filter((e): e is RouterEvent => e instanceof RouterEvent)
+   ).subscribe((event)=>{
+      this.navService.active = false;
+      console.log(`navigated to ${event}`)
+    });
+  }
+}

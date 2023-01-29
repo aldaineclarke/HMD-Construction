@@ -1,4 +1,6 @@
-import { Component, ElementRef, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavService } from 'src/app/Services/nav.service';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +9,20 @@ import { Component, ElementRef, OnInit, Renderer2, TemplateRef, ViewChild } from
 })
 export class HeaderComponent {
 
-  constructor(private renderer: Renderer2) { }
+  constructor(public navService: NavService) {
+   }
 
-  active = false;
+  active = this.navService.active;
   @ViewChild("headerContainer") selectedContainer !:ElementRef;
   
   @ViewChild("headerSection") header!:ElementRef;
 
   toggleNav(){
-    this.active = !this.active;
+    console.log(
+      'click'
+    );
+    
+    this.navService.toggleNav();
   }
 
 

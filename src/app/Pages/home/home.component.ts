@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NavService } from 'src/app/Services/nav.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,13 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(public navService: NavService) { }
 
   @ViewChild("carousel_wrapper") carouselSlider !: ElementRef;
   @ViewChild("prev") prevArrow !: ElementRef;
   @ViewChild("next") nextArrow !: ElementRef;
+  @ViewChild("mobileNav") mobileNav!:ElementRef;
+  @ViewChild("hamburger") hamburger!:ElementRef;
 
   projects = [
     {
@@ -54,7 +57,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   slider!:HTMLElement;
   nextBtn!: HTMLElement;
-  prevBtn!:HTMLElement
+  prevBtn!:HTMLElement;
   index = 1;
   slides:HTMLElement[] = []; 
   translateByVal = 0;
@@ -102,18 +105,23 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.index = 0
 
     }
+    console.log(this.navService.active);
+    
   }
   active = false;
   toggleNav(){
-    this.active = !this.active;
+    (this.mobileNav.nativeElement as HTMLElement).style.transition = "";
+
+    this.navService.toggleNav();
   }
 
   ngAfterViewInit(): void {
-    this.slider = this.carouselSlider.nativeElement;
 
+    this.slider = this.carouselSlider.nativeElement;
+    console.log(this.navService.active);
+    (this.mobileNav.nativeElement as HTMLElement).style.transition = "none";
     this.nextBtn = this.nextArrow.nativeElement;
     this.prevBtn = this.prevArrow.nativeElement;
-    Math.max()
     this.slider.querySelectorAll(".carousel__slide").forEach((item, index)=>{
       if(index == 0){
         item.classList.add("prev");
@@ -125,7 +133,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.translateByVal = Math.max(this.translateByVal, item.clientWidth)
       this.slides.push(item as HTMLElement);
     });
-    console.log(window.innerWidth)
     
 
 
