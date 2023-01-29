@@ -100,7 +100,7 @@ section{
         
     }
     .newsletter{
-        height: 70vh;
+        height: 60vh;
         align-items: flex-start;
 
         .constrained{
@@ -131,7 +131,7 @@ section{
         justify-content:space-evenly;    }
 
         .newsletter{
-            height: 80vh;
+            height: 60vh;
             align-items: flex-start;
     
             .constrained{
@@ -142,5 +142,8 @@ section{
             }
           
         }
-    
+        .newsletter__form{
+            @apply w-5/6;
+        }
+        
 }
