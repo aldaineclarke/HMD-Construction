@@ -105,7 +105,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.index = 0
 
     }
-    console.log(this.navService.active);
     
   }
   active = false;
@@ -118,7 +117,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
 
     this.slider = this.carouselSlider.nativeElement;
-    console.log(this.navService.active);
     (this.mobileNav.nativeElement as HTMLElement).style.transition = "none";
     this.nextBtn = this.nextArrow.nativeElement;
     this.prevBtn = this.prevArrow.nativeElement;
@@ -142,7 +140,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   nextSlide():void {
     this.index++;
-    console.log(this.index)
     if(this.index >= 0){
       this.prevBtn.style.display = "flow-root";
     }if(this.index >= 5){
@@ -170,7 +167,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   previousSlide():void{
     this.index--;
-    console.log(this.index);
     if(this.index < 1){
       this.prevBtn.style.display = "none";
     }else if(this.index <= 5){

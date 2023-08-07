@@ -17,11 +17,7 @@ export class HeaderComponent {
   
   @ViewChild("headerSection") header!:ElementRef;
 
-  toggleNav(){
-    console.log(
-      'click'
-    );
-    
+  toggleNav(){    
     this.navService.toggleNav();
   }
 
