@@ -1,10 +1,21 @@
 .hero {
     position: relative;
-    background-image: url("/assets/HMDC/architecture-gba45d817b_1920.jpg");
     background-color: slategray;
     height: 100vh;
+
     overflow: hidden;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 95%, 0% 75%)
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 95%, 0% 75%);
+    img{
+        position:absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        object-fit: cover;
+        object-position: center;
+        z-index: -1;
+        height: 100%;
+    }
 }
 
 .hero::before {
@@ -13,7 +24,8 @@
     width: 100%;
     content: "";
     background-color: #383838;
-    mix-blend-mode: hard-light
+    mix-blend-mode: hard-light;
+    
 }
 
 section:not(.hero) {
