@@ -30,10 +30,10 @@ export class ContactComponent implements OnInit {
   }
 
   submitQuote(){
-    console.log(this.quoteForm)
+    console.log(this.quoteForm.value)
   }
   submitFeedback(){
-    console.log(this.contactForm)
+    console.log(this.contactForm.value)
   }
 
 }

@@ -40,7 +40,6 @@ export class AppRoutingModule {
       filter((e): e is RouterEvent => e instanceof RouterEvent)
    ).subscribe((event)=>{
       this.navService.active = false;
-      console.log(`navigated to ${event}`)
     });
   }
 }
