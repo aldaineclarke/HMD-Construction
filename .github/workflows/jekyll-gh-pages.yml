@@ -47,6 +47,8 @@ jobs:
           destination: /dist/hmdc
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: "/dist/hmdc"
   # Deployment job
   deploy:
     environment:
